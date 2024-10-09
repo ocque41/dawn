@@ -1,0 +1,95 @@
+{% comment %} Product Page Template {% endcomment %}
+
+<section class="product-page">
+  <!-- Main Container -->
+  <div class="product-container" style="display: flex; justify-content: space-between; align-items: center;">
+    <!-- Back to All Products Link -->
+    <div class="back-to-all" style="position: absolute; bottom: 20px; left: 20px;">
+      <a href="{{ routes.all_products_collection_url }}" class="back-link">
+        <img src="{{ 'back-icon.svg' | asset_url }}" alt="Back to All"> BACK TO ALL
+      </a>
+    </div>
+
+    <!-- Product Image -->
+    <div class="product-image" style="flex: 1; display: flex; justify-content: center; align-items: center;">
+      {% if product.featured_image %}
+        <img
+          src="{{ product.featured_image | img_url: 'master' }}"
+          alt="{{ product.title }}"
+          style="max-width: 100%; height: auto;"
+        >
+      {% endif %}
+    </div>
+
+    <!-- Product Information -->
+    <div class="product-info" style="flex: 1; padding: 40px;">
+      <!-- Product Title -->
+      <h1 style="font-size: 2em; margin-bottom: 10px;">{{ product.title }}</h1>
+
+      <!-- Product Price -->
+      <div class="product-price" style="font-size: 1.5em; color: #8b8b8b;">{{ product.price | money }}</div>
+
+      <!-- Add to Bag Button -->
+      <form method="post" action="/cart/add" enctype="multipart/form-data" id="add-to-cart-form">
+        <button
+          type="submit"
+          class="add-to-bag-button"
+          style="margin: 20px 0; padding: 15px; background: #000; color: #fff; border: none; cursor: pointer;"
+        >
+          ADD TO BAG
+        </button>
+      </form>
+
+      <!-- Product Details -->
+      <div class="product-details">
+        <h3>DETAILS -</h3>
+        <ul>
+          {% for line in product.description.split: '\n' %}
+            <li>{{ line }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Care and Return Information -->
+      <div class="extra-info">
+        <h3>CARE +</h3>
+        <p>Refer to care instructions on label.</p>
+        <h3>RETURNS/EXCHANGES +</h3>
+        <p>Returns and exchanges within 30 days of purchase.</p>
+      </div>
+    </div>
+
+    <!-- Next Item Link -->
+    <div class="next-item" style="position: absolute; bottom: 20px; right: 20px;">
+      <a href="{{ product.next_product | product_url }}" class="next-link">NEXT ITEM ►</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-page {
+    font-family: 'Helvetica, Arial, sans-serif';
+    color: #000;
+  }
+
+  .back-link,
+  .next-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+  }
+
+  .product-info h3 {
+    margin-top: 20px;
+    font-size: 1.2em;
+  }
+
+  .product-details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .product-details ul li {
+    margin-bottom: 5px;
+  }
+</style>

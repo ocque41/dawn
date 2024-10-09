@@ -1,0 +1,162 @@
+<section class="video-banner">
+  <div class="text-overlay">
+    <ul class="page-links">
+      <li><a href="/pages/chrome-season">CHROME SEASON</a></li>
+      <li><a href="#">CATALOG</a></li>
+      <li><a href="#">20% DISCOUNT</a></li>
+      <li><a href="#">LOOKBOOK</a></li>
+      <li><a href="#">ZYONY SOUNDS</a></li>
+      <li><a href="mailto:info@zyony.com">INFO@ZYONY.COM</a></li>
+    </ul>
+  </div>
+
+  <!-- Video container below the links -->
+  <div class="video-container">
+    <video autoplay loop muted playsinline>
+      <source src="https://cdn.shopify.com/videos/c/o/v/f56231fcc756453dac02e4b29ca87aaf.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+<style>
+  /* Hide the cookie consent banner */
+  #cookie-consent-banner {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    max-height: 0 !important;
+  }
+
+  /* Use only the Halenoir Compact Medium font */
+  @font-face {
+    font-family: 'Halenoir Compact';
+    src: url('{{ 'HalenoirCompact-Medium.otf' | asset_url }}') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  /* Hide the announcement bar, header, and footer */
+  .announcement-bar,
+  .shopify-section.announcement-bar,
+  .shopify-section.header,
+  header,
+  .shopify-section.footer,
+  footer {
+    display: none !important;
+    height: 0 !important;
+    visibility: hidden !important;
+  }
+
+  /* Center the entire banner vertically */
+  .video-banner {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  /* Video starts full-size */
+  .video-container {
+    width: 100%; /* Start full width */
+    max-width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    animation: shrinkVideo 4s ease-in-out forwards; /* Smooth, natural transition */
+  }
+
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Text overlay starts hidden and fades in */
+  .text-overlay {
+    z-index: 10;
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    animation: fadeInLinks 1s ease forwards;
+    animation-delay: 3s; /* Delay links appearance by 3 seconds */
+  }
+
+  /* Styling the text links with custom Halenoir Compact Medium font */
+  .page-links {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    font-size: 1.65rem; /* Font size */
+    color: black;
+  }
+
+  .page-links li {
+    margin: 10px 0; /* Space between links */
+  }
+
+  .page-links a {
+    font-family: 'Halenoir Compact', sans-serif; /* Use custom font */
+    color: black;
+    text-decoration: none;
+    font-weight: 500; /* Medium weight */
+    transition: color 0.3s ease;
+  }
+
+  .page-links a:hover {
+    color: #e13e09; /* Highlight color on hover */
+  }
+
+  /* Keyframes for shrinking video to a much smaller size */
+  @keyframes shrinkVideo {
+    0% {
+      width: 100%; /* Full width at the start */
+      height: 100vh; /* Full height at the start */
+    }
+    100% {
+      width: 15%; /* Shrink to 15% width */
+      height: auto; /* Adjust height accordingly */
+      max-width: 150px; /* Smaller max width */
+    }
+  }
+
+  /* Keyframes for fading in links */
+  @keyframes fadeInLinks {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    .page-links {
+      font-size: 1.32rem; /* Adjust for tablets */
+    }
+    .video-container {
+      width: 35%; /* Adjust video for smaller screens */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .page-links {
+      font-size: 1.1rem; /* Adjust for mobile */
+    }
+    .video-container {
+      width: 40%; /* Adjust video for mobile screens */
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Select the cookie consent banner and enforce its removal
+    const cookieBanner = document.getElementById('cookie-consent-banner');
+    if (cookieBanner) {
+      cookieBanner.remove(); // Force remove the cookie banner element
+    }
+  });
+</script>
