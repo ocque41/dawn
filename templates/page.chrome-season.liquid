@@ -1,5 +1,5 @@
 {% layout 'chrome-season' %}
-<a href="https://zyony.myshopify.com/products/white-chromad" class="logo-link"><img src="{{ '27.png' | asset_url }}" alt="ZYONY Logo" class="logo"></a>
+<a href="https://zyony.com" class="logo-link"><img src="{{ '27.png' | asset_url }}" alt="ZYONY Logo" class="logo"></a>
 
 <section class="chrome-season">
   <!-- Logo as a link to home -->
@@ -18,7 +18,7 @@
         <h2 class="product-title">WHITE CHROMAD</h2>
         <!-- Link to WHITE CHROMAD product page in price but without the link styling -->
         <p class="product-price">
-          <a href="/products/white-chromad" class="no-link-style">37.9<span>&euro;</span></a>
+          <a href="https://zyony.myshopify.com/products/white-chromad" class="no-link-style">37.9<span>&euro;</span></a>
         </p>
       </div>
     </div>
@@ -153,7 +153,7 @@
   }
 
   .logo {
-    max-width: 150px;
+    max-width: 120px;
     height: auto;
   }
 
@@ -187,7 +187,7 @@
   .product-image-wrapper {
     position: relative;
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     overflow: hidden; /* Ensure both front and back images fit inside the wrapper */
   }
 
@@ -249,13 +249,13 @@
   /* Responsive product scaling */
   @media (max-width: 768px) {
     .product-image-wrapper {
-      max-width: 600px;
+      max-width: 800px;
     }
   }
 
   @media (max-width: 480px) {
     .product-image-wrapper {
-      max-width: 400px;
+      max-width: 600px;
     }
   }
 
@@ -269,4 +269,3 @@
     }
   }
 </style>
-
